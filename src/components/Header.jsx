@@ -15,6 +15,7 @@ import {
   ListItemText,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import PublicIcon from '@mui/icons-material/Public';
 import { useState } from 'react';
 
 const Header = ({ onNavigate }) => {
@@ -80,9 +81,13 @@ const Header = ({ onNavigate }) => {
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 1,
             }}
             onClick={() => onNavigate('Home')}
           >
+            <PublicIcon sx={{ fontSize: '1.8rem' }} />
             Global Traders
           </Box>
 
