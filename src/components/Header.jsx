@@ -58,8 +58,10 @@ const Header = ({ onNavigate }) => {
     <AppBar
       position="sticky"
       sx={{
-        background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
+        background: 'linear-gradient(135deg, #0a0e27 0%, #0f1729 100%)',
         boxShadow: '0 4px 20px rgba(0, 0, 0, 0.5)',
+        backdropFilter: 'blur(10px)',
+        border: '1px solid rgba(0, 212, 255, 0.1)',
       }}
     >
       <Container maxWidth="lg">
@@ -70,12 +72,15 @@ const Header = ({ onNavigate }) => {
             justifyContent: 'space-between',
             alignItems: 'center',
             py: 1,
+            transition: 'all 0.3s ease',
           }}
         >
           <Box
             sx={{
               fontSize: '1.5rem',
-              fontWeight: 'bold',
+              fontWeight: 800,
+              letterSpacing: '-0.01em',
+              fontStyle: 'bold',
               background: 'linear-gradient(135deg, #00d4ff, #0099ff)',
               backgroundClip: 'text',
               WebkitBackgroundClip: 'text',
@@ -84,10 +89,22 @@ const Header = ({ onNavigate }) => {
               display: 'flex',
               alignItems: 'center',
               gap: 1,
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                filter: 'brightness(1.1)',
+              },
             }}
             onClick={() => onNavigate('Home')}
           >
-            <PublicIcon sx={{ fontSize: '1.8rem' }} />
+            <PublicIcon 
+              sx={{ 
+                fontSize: '1.8rem',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  transform: 'rotate(20deg) scale(1.1)',
+                },
+              }} 
+            />
             Global Traders
           </Box>
 
@@ -107,7 +124,8 @@ const Header = ({ onNavigate }) => {
                 onClose={handleDrawerToggle}
                 PaperProps={{
                   sx: {
-                    backgroundColor: '#1a1a2e',
+                    backgroundColor: '#0f1729',
+                    backdropFilter: 'blur(10px)',
                   },
                 }}
               >
@@ -123,7 +141,9 @@ const Header = ({ onNavigate }) => {
                   sx={{
                     color: '#fff',
                     fontSize: '1rem',
-                    fontWeight: '500',
+                    fontWeight: 600,
+                    letterSpacing: '0.3px',
+                    fontStyle: 'normal',
                     position: 'relative',
                     '&::after': {
                       content: '""',
@@ -132,12 +152,14 @@ const Header = ({ onNavigate }) => {
                       left: 0,
                       width: 0,
                       height: '2px',
-                      background: 'linear-gradient(135deg, #00d4ff, #0099ff)',
+                      background: 'linear-gradient(90deg, #00d4ff, #00f0ff)',
+                      boxShadow: '0 0 10px rgba(0, 212, 255, 0.5)',
                       transition: 'width 0.3s ease',
                     },
                     '&:hover::after': {
                       width: '100%',
                     },
+                    transition: 'all 0.3s ease',
                   }}
                 >
                   {item}

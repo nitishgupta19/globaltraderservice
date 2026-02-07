@@ -6,41 +6,44 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-// Create dark theme
+// Create modern dark theme
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     background: {
-      default: '#0f0f1e',
-      paper: '#1a1a2e',
+      default: '#0a0e27',
+      paper: '#0f1729',
     },
     primary: {
       main: '#00d4ff',
     },
     secondary: {
-      main: '#0099ff',
+      main: '#00f0ff',
     },
     text: {
       primary: '#ffffff',
-      secondary: '#a0a0a0',
+      secondary: '#b0b0c0',
     },
   },
   typography: {
-    fontFamily: '"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif',
+    fontFamily: '"Inter", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif',
     h1: {
-      fontWeight: 700,
+      fontWeight: 800,
       fontSize: '3.5rem',
+      letterSpacing: '-0.02em',
     },
     h2: {
-      fontWeight: 700,
+      fontWeight: 800,
       fontSize: '2.5rem',
+      letterSpacing: '-0.01em',
     },
     h3: {
-      fontWeight: 600,
+      fontWeight: 700,
       fontSize: '2rem',
+      letterSpacing: '-0.01em',
     },
     h4: {
-      fontWeight: 600,
+      fontWeight: 700,
       fontSize: '1.5rem',
     },
     h5: {
@@ -53,9 +56,11 @@ const darkTheme = createTheme({
     },
     body1: {
       fontSize: '1rem',
+      lineHeight: 1.7,
     },
     body2: {
       fontSize: '0.875rem',
+      lineHeight: 1.6,
     },
   },
   components: {
@@ -63,18 +68,39 @@ const darkTheme = createTheme({
       styleOverrides: {
         root: {
           textTransform: 'none',
-          borderRadius: '6px',
+          borderRadius: '10px',
           fontSize: '1rem',
-          fontWeight: 500,
+          fontWeight: 600,
+          letterSpacing: '0.5px',
+          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          position: 'relative',
+          overflow: 'hidden',
+        },
+        contained: {
+          background: 'linear-gradient(135deg, #00d4ff, #00f0ff)',
+          color: '#0a0e27',
+          boxShadow: '0 8px 24px rgba(0, 212, 255, 0.3)',
+          '&:hover': {
+            boxShadow: '0 12px 32px rgba(0, 212, 255, 0.4)',
+            transform: 'translateY(-2px)',
+          },
         },
       },
     },
     MuiCard: {
       styleOverrides: {
         root: {
-          backgroundColor: 'rgba(26, 26, 46, 0.6)',
-          backdropFilter: 'blur(10px)',
-          border: '1px solid rgba(0, 212, 255, 0.2)',
+          backgroundColor: 'rgba(15, 23, 41, 0.8)',
+          backdropFilter: 'blur(20px)',
+          border: '1px solid rgba(0, 212, 255, 0.15)',
+          transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
+          '&:hover': {
+            backgroundColor: 'rgba(15, 23, 41, 0.95)',
+            border: '1px solid rgba(0, 212, 255, 0.3)',
+            boxShadow: '0 12px 48px rgba(0, 212, 255, 0.2)',
+            transform: 'translateY(-4px)',
+          },
         },
       },
     },
@@ -117,6 +143,7 @@ function App() {
           minHeight: '100vh',
           backgroundColor: '#0f0f1e',
           color: '#fff',
+          width: '100%',
         }}
       >
         <Header onNavigate={handleNavigation} />
