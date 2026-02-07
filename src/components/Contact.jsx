@@ -70,17 +70,30 @@ const Contact = () => {
       id="contact"
       sx={{
         py: 8,
-        background: 'linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%)',
+        background: 'linear-gradient(135deg, #0a0e27 0%, #0f1729 100%)',
+        position: 'relative',
+        overflow: 'hidden',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+        //   bottom: '-50%',
+        //   right: '-10%',
+          width: '100%',
+          height: '600px',
+          background: 'radial-gradient(circle, rgba(0, 212, 255, 0.05) 0%, transparent 70%)',
+          pointerEvents: 'none',
+        },
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="100%">
         {/* Section Title */}
         <Box sx={{ textAlign: 'center', mb: 6 }}>
           <Typography
             variant="h2"
             sx={{
               fontSize: { xs: '2rem', md: '3rem' },
-              fontWeight: 'bold',
+              fontWeight: 800,
+              letterSpacing: '-0.01em',
               background: 'linear-gradient(135deg, #00d4ff, #0099ff)',
               backgroundClip: 'text',
               WebkitBackgroundClip: 'text',
@@ -93,21 +106,24 @@ const Contact = () => {
           <Box
             sx={{
               height: '4px',
-              background: 'linear-gradient(135deg, #00d4ff, #0099ff)',
+              background: 'linear-gradient(90deg, transparent, #00d4ff, transparent)',
               width: '100px',
               margin: '0 auto',
               borderRadius: '2px',
+              boxShadow: '0 0 20px rgba(0, 212, 255, 0.4)',
             }}
           />
         </Box>
 
-        <Grid container spacing={4}>
+        <Grid container spacing={2} sx={{ mb: 6, justifyContent: 'center', width: '100%' }}>
           {/* Contact Information */}
-          <Grid item xs={12} md={5}>
+          <Grid item xs={12} md={5} sx={{ width: '30%' }}>
             <Typography
               variant="h5"
               sx={{
-                fontWeight: 'bold',
+                fontStyle: 'bold',
+                fontWeight: 700,
+                letterSpacing: '-0.01em',
                 color: '#fff',
                 mb: 4,
               }}
@@ -120,16 +136,18 @@ const Contact = () => {
                 <Card
                   key={index}
                   sx={{
-                    background: 'rgba(0, 212, 255, 0.05)',
+                    background: 'rgba(0, 212, 255, 0.08)',
                     border: '1px solid rgba(0, 212, 255, 0.2)',
+                    backdropFilter: 'blur(10px)',
                     p: 3,
                     display: 'flex',
                     gap: 2,
-                    transition: 'all 0.3s ease',
+                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                     '&:hover': {
-                      background: 'rgba(0, 212, 255, 0.1)',
+                      background: 'rgba(0, 212, 255, 0.15)',
                       border: '1px solid rgba(0, 212, 255, 0.4)',
                       transform: 'translateX(8px)',
+                      boxShadow: '0 8px 24px rgba(0, 212, 255, 0.15)',
                     },
                   }}
                 >
@@ -138,7 +156,9 @@ const Contact = () => {
                     <Typography
                       variant="h6"
                       sx={{
-                        fontWeight: 'bold',
+                        fontStyle: 'bold',
+                        fontWeight: 700,
+                        letterSpacing: '-0.01em',
                         color: '#fff',
                         mb: 0.5,
                       }}
@@ -153,6 +173,7 @@ const Contact = () => {
                           color: '#00d4ff',
                           textDecoration: 'none',
                           fontSize: '0.95rem',
+                          fontWeight: 500,
                           '&:hover': {
                             textDecoration: 'underline',
                           },
@@ -163,7 +184,7 @@ const Contact = () => {
                     ) : (
                       <Typography
                         sx={{
-                          color: '#a0a0a0',
+                          color: '#b0b0c0',
                           fontSize: '0.95rem',
                           lineHeight: 1.6,
                         }}
@@ -175,41 +196,24 @@ const Contact = () => {
                 </Card>
               ))}
             </Box>
-
-            {/* Map placeholder */}
-            <Box
-              sx={{
-                mt: 4,
-                borderRadius: '8px',
-                overflow: 'hidden',
-                height: '250px',
-                background: 'rgba(0, 212, 255, 0.05)',
-                border: '1px solid rgba(0, 212, 255, 0.2)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              <Typography sx={{ color: '#a0a0a0' }}>
-                Map goes here...
-              </Typography>
-            </Box>
           </Grid>
 
           {/* Contact Form */}
-          <Grid item xs={12} md={7}>
+          <Grid item xs={12} md={5} sx={{ width: '50%' }}>
             <Card
               sx={{
-                background: 'rgba(0, 212, 255, 0.05)',
+                background: 'rgba(0, 212, 255, 0.08)',
                 border: '1px solid rgba(0, 212, 255, 0.2)',
+                backdropFilter: 'blur(15px)',
                 p: 4,
-                backdropFilter: 'blur(10px)',
               }}
             >
               <Typography
                 variant="h5"
                 sx={{
-                  fontWeight: 'bold',
+                  fontStyle: 'bold',
+                  fontWeight: 700,
+                  letterSpacing: '-0.01em',
                   color: '#fff',
                   mb: 3,
                 }}
@@ -225,6 +229,7 @@ const Contact = () => {
                     backgroundColor: 'rgba(76, 175, 80, 0.1)',
                     color: '#4CAF50',
                     border: '1px solid rgba(76, 175, 80, 0.3)',
+                    borderRadius: '10px',
                   }}
                 >
                   Thank you for your message! We will get back to you soon.
