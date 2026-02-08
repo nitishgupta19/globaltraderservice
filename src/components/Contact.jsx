@@ -85,13 +85,13 @@ const Contact = () => {
         },
       }}
     >
-      <Container maxWidth="100%">
+      <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
         {/* Section Title */}
         <Box sx={{ textAlign: 'center', mb: 6 }}>
           <Typography
             variant="h2"
             sx={{
-              fontSize: { xs: '2rem', md: '3rem' },
+              fontSize: { xs: '1.6rem', sm: '2.2rem', md: '3rem' },
               fontWeight: 800,
               letterSpacing: '-0.01em',
               background: 'linear-gradient(135deg, #00d4ff, #0099ff)',
@@ -115,9 +115,9 @@ const Contact = () => {
           />
         </Box>
 
-        <Grid container spacing={2} sx={{ mb: 6, justifyContent: 'center', width: '100%' }}>
+        <Grid container spacing={4} sx={{ mb: 6, display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: { xs: 2, md: 4 } }}>
           {/* Contact Information */}
-          <Grid item xs={12} md={5} sx={{ width: '30%' }}>
+          <Box>
             <Typography
               variant="h5"
               sx={{
@@ -125,13 +125,14 @@ const Contact = () => {
                 fontWeight: 700,
                 letterSpacing: '-0.01em',
                 color: '#fff',
-                mb: 4,
+                mb: 3,
+                fontSize: { xs: '1.2rem', md: '1.4rem' },
               }}
             >
               Contact Information
             </Typography>
 
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 2, md: 3 } }}>
               {contactMethods.map((method, index) => (
                 <Card
                   key={index}
@@ -151,7 +152,7 @@ const Contact = () => {
                     },
                   }}
                 >
-                  <Box sx={{ flexShrink: 0 }}>{method.icon}</Box>
+                  <Box sx={{ flexShrink: 0, display: 'flex', justifyContent: 'center', alignItems: 'center', minWidth: '3rem' }}>{method.icon}</Box>
                   <Box>
                     <Typography
                       variant="h6"
@@ -196,16 +197,18 @@ const Contact = () => {
                 </Card>
               ))}
             </Box>
-          </Grid>
+          </Box>
 
           {/* Contact Form */}
-          <Grid item xs={12} md={5} sx={{ width: '50%' }}>
+          <Box>
             <Card
               sx={{
                 background: 'rgba(0, 212, 255, 0.08)',
                 border: '1px solid rgba(0, 212, 255, 0.2)',
                 backdropFilter: 'blur(15px)',
-                p: 4,
+                p: { xs: 2.5, sm: 3, md: 4 },
+                display: 'flex',
+                flexDirection: 'column',
               }}
             >
               <Typography
@@ -216,6 +219,7 @@ const Contact = () => {
                   letterSpacing: '-0.01em',
                   color: '#fff',
                   mb: 3,
+                  fontSize: { xs: '1.2rem', md: '1.4rem' },
                 }}
               >
                 Send Us a Message
@@ -237,7 +241,7 @@ const Contact = () => {
               )}
 
               <form onSubmit={handleSubmit}>
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 1.5, md: 2 } }}>
                   <TextField
                     fullWidth
                     label="Your Name"
@@ -416,7 +420,7 @@ const Contact = () => {
                 </Box>
               </form>
             </Card>
-          </Grid>
+          </Box>
         </Grid>
       </Container>
     </Box>
